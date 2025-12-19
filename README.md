@@ -4,7 +4,7 @@ Un projet centré sur la création d'un algorithme qui permet de donner à une i
 une certaine texture choisie.
 
 
-#Exemple d'utilisation:
+# Exemple d'utilisation :
 
 
 Synthèse de texture :
