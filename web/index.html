@@ -1,0 +1,53 @@
+<head>
+<title>Projet</title>
+<!-- Ceci est un commentaire -->
+<!-- La ligne ci-dessous vous permettra d'écrire votre texte avec des accents français -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body>
+  <h1>Projet</h1>
+  <h2>Présentation de l'approche</h2>
+
+  <h2>Description</h2> 
+  <p>Notre approche repose sur la synthèse d’images en réutilisant des petits blocs extraits d’une texture d’exemple. On commence avec quilt_random,  <br> 
+  qui place des blocs au hasard sans s’occuper des transitions. Le résultat est rapide, mais souvent incohérent visuellement. Pour améliorer ça, quilt_simple <br>
+  ajoute du chevauchement entre les blocs et choisit ceux qui s’adaptent le mieux à ce qu’il y a déjà, en comparant les zones superposées. Ensuite, quilt_cut va encore <br>
+  plus loin en trouvant un chemin de fusion optimal dans la zone de chevauchement, grâce à la fonction cut qui minimise les différences entre les blocs. <br>
+  Finalement, texture_transfer permet de guider la texture en s’inspirant d’une image cible. En plus de minimiser les différences entre les blocs, <br>
+  cette fonction tient compte de la ressemblance avec l’image cible grâce à un paramètre alpha qui équilibre entre la continuité et la fidélité au contenu. <br>
+  Chaque étape rend le résultat visuellement plus cohérent et permet de mieux contrôler l’apparence finale. <br>
+  </p>
+
+  <h2>Résultats</h2> 
+  <p>
+  Comme on peut voir, certains résultats ont fonctionné beaucoup mieux que d'autres. Probablement dû à des mauvaises valeurs utilisées, <br> 
+  la définition de l'image de base dans la texture est plus visible sur certaines photos que d'autres. <br>
+  Transfert de texture efficace <img src="images/4-bricks_me.jpg" width="500" height="500"> <br> 
+  Transfert de texture inefficace <img src="images/4-texture2_kobe.jpg" width="500" height="500"> <br> 
+  Ici, on peut clairement voir que certaines méthodes ont été plus efficaces que d'autres pour générer nos images chevauchées. L'utilisation de quilt_cut <br> 
+  a clairement générer le résultat le plus réaliste et l'utilisation de quilt random est clairement l'image qui parait la plus artificielle. <br>
+  quilt_random <img src="images/1-bricks_small_random.jpg" width="500" height="500"> <br> 
+  quilt_simple <img src="images/2-bricks_small_simple_lap8_tol0.1.jpg" width="500" height="500"> <br> 
+  quilt_cut <img src="images/3-bricks_small_cut.jpg" width="500" height="500"> <br> 
+  Certainement, les résultats dépendent aussi des images utilisées, par exemple, l'image de texture de texte a donné un résultat beaucoup plus<br> 
+  acceptable avec l'utilisation de quilt_random que les images de texture normales. Les séparations en blocs ne sont pas aussi visibles sur l'image de texte. <br> 
+  Texte <img src="images/1-text_small_random.jpg" width="500" height="500"> <br> 
+  Texture <img src="images/1-texture3_random.jpg" width="500" height="500"> <br> 
+  Mes résultats préférés dans ce projet étaient les suivants, j'ai trouvé qu'ils étaient les résultats les plus lisses et réguliers comparativement au reste des images. <br> 
+  Ma face fusionnée avec les briques <img src="images/4-bricks_me.jpg" width="500" height="500"> <br> 
+  Feynman fusionné avec une texture trouvée en ligne <img src="images/4-texture1_feynman.jpg" width="500" height="500"> <br> 
+  Cette texture trouvée en ligne après l'application de quilt_cut <img src="images/3-texture1_cut.jpg" width="500" height="500"> <br> 
+  </p>
+ 
+  
+  <h2>Discussion</h2> 
+  <p>Même si l’approche fonctionne bien dans l’ensemble, on a remarqué que certaines combinaisons de textures et d’images cibles donnent de bien meilleurs résultats que d’autres.  <br> 
+  Par exemple, les visages comme ceux de me.jpg ou feynman.tiff ont bien fusionné avec des textures structurées comme bricks_small.jpg ou texture1.jpg, donnant des résultats visuellement cohérents. <br> 
+  En revanche, les images de kobe.jpg, muhammad_ali.jpg et sketch.tiff ont posé plus de problèmes. Ces images contiennent peut-être trop de détails, ce qui rend la fusion plus difficile.  <br> 
+  Côté code, une amélioration possible serait d’adapter automatiquement le paramètre alpha selon la complexité visuelle de la texture ou de l’image cible, ou encore d’ajouter un post-traitement <br> 
+  pour lisser les bords. Le système de sélection de blocs pourrait aussi tenir compte de plus de contexte pour mieux aligner les motifs. Malgré ces limites, le système fonctionne <br> 
+   bien dans plusieurs cas et montre que de bons résultats sont possibles avec les bons paramètres et textures. <br>
+   </p>
+ 
+
+</body>
