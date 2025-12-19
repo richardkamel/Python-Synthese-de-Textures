@@ -3,10 +3,11 @@
 Un projet centré sur la création d'un algorithme qui permet de donner à une image existante
 une certaine texture choisie.
 
-Exemple d'utilisation:
+
+#Exemple d'utilisation:
 
 
-## Synthèse de texture
+Synthèse de texture :
 from synthese import quilt_cut, texture_transfer
 import imageio.v2 as imageio
 
@@ -15,7 +16,7 @@ image = imageio.imread("face.jpg")
 
 result = quilt_cut(texture, (512, 512), patchsize=40, overlap=10)
 
-## Transfert de texture
+Transfert de texture :
 from synthese import quilt_cut, texture_transfer
 import imageio.v2 as imageio
 
